@@ -139,6 +139,36 @@ return [
             'url'         => 'admin/pages',
             'icon'        => 'file',
             'label_color' => 'success',
+            'submenu' => [
+                [
+                    'text' => 'View Category',
+                    'icon' => 'file',
+                    'url' => 'admin/category/index',
+                ],
+                [
+                    'text' => 'Create Category',
+                    'icon' => 'file',
+                    'url' => 'admin/category/create',
+                ]
+            ]
+        ],
+        [
+            'text'        => 'Brand',
+            'url'         => 'admin/pages',
+            'icon'        => 'file',
+            'label_color' => 'success',
+            'submenu' => [
+                [
+                    'text' => 'View Brand',
+                    'icon' => 'file',
+                    'url' => 'admin/category/index',
+                ],
+                [
+                    'text' => 'Create Brand',
+                    'icon' => 'file',
+                    'url' => 'admin/category/create',
+                ]
+            ]
         ],
         'ACCOUNT SETTINGS',
 

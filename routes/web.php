@@ -46,6 +46,13 @@ Route::get('admin/category/index', function () {
     return view('Admin/Category/index');
 });
 
+Route::get('admin/category/create', function () {
+    return view('Admin/Category/create');
+});
+
+Route::get('admin/profile/user', function () {
+    return view('Admin/Profile/user');
+});
 
 
 
