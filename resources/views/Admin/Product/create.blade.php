@@ -11,43 +11,44 @@
 
         <!-- /.box-header -->
         <div class="box-body">
-            <form role="form">
+            <form role="form"  method="post" action="{{route('product.store')}}">
+                @csrf
+
                 <!-- text input -->
                 <div class="form-group">
                     <label>Title</label>
-                    <input type="text" class="form-control" placeholder="Enter ...">
+                    <input type="text" class="form-control" name="title" placeholder="Enter ...">
                 </div>
 
                 <!-- textarea -->
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                    <textarea class="form-control" rows="3" name="description" placeholder="Enter ..."></textarea>
                 </div>
 
                 <!-- select -->
                 <div class="form-group">
                     <label>Category</label>
-                    <select class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
+                    <select class="form-control" name="category_id">
+                        @foreach ($cetegories as $category)
+                            <option value="{{$category->id}}">{{$category->title}}</option>
+                        @endforeach
+
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Brand</label>
-                    <select class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
+                    <select class="form-control" name="brand">
+
+                            <option >Option 1</option>
+
+
+
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Price</label>
-                    <input type="float" class="form-control" placeholder="Enter ...">
+                    <input type="float" class="form-control" name="price" placeholder="Enter ...">
                 </div>
                 <button type="submit" class="btn btn-info pull-right">Save</button>
 

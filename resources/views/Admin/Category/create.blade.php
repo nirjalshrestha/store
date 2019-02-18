@@ -3,7 +3,7 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>Create Product</h1>
+    <h1>Create Category</h1>
 @stop
 
 @section('content')
@@ -11,11 +11,12 @@
 
         <!-- /.box-header -->
         <div class="box-body">
-            <form role="form">
+            <form role="form" method="post" action="{{route('category.store')}}">
+                @csrf
                 <!-- text input -->
                 <div class="form-group">
                     <label>Category Title</label>
-                    <input type="text" class="form-control" placeholder="Enter ...">
+                    <input type="text" class="form-control" name="title" placeholder="Enter ...">
                 </div>
 
                 <button type="submit" class="btn btn-info pull-right">Save</button>

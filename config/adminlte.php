@@ -116,20 +116,20 @@ return [
         ],
         [
             'text'        => 'Products',
-            'url'         => 'admin/product/index',
+            'url'         => 'product/index',
             'icon'        => 'file',
             'label_color' => 'success',
             'submenu' => [
                 [
                     'text' => 'Create Product',
                     'icon' => 'file',
-                    'url' => 'admin/product/create',
+                    'url' => 'product/create',
                 ],
 
                 [
                 'text' => 'View Product',
                 'icon' => 'file',
-                'url' => 'admin/product/index',
+                'url' => 'product',
             ]
 
             ]
@@ -143,12 +143,12 @@ return [
                 [
                     'text' => 'View Category',
                     'icon' => 'file',
-                    'url' => 'admin/category/index',
+                    'url' => 'category',
                 ],
                 [
                     'text' => 'Create Category',
                     'icon' => 'file',
-                    'url' => 'admin/category/create',
+                    'url' => 'category/create',
                 ]
             ]
         ],
@@ -161,12 +161,12 @@ return [
                 [
                     'text' => 'View Brand',
                     'icon' => 'file',
-                    'url' => 'admin/category/index',
+                    'url' => 'brand',
                 ],
                 [
                     'text' => 'Create Brand',
                     'icon' => 'file',
-                    'url' => 'admin/category/create',
+                    'url' => 'brand/create',
                 ]
             ]
         ],

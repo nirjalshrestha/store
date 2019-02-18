@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Brand;
 
 class BrandController extends Controller
 {
@@ -13,7 +14,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.Brand.index');
     }
 
     /**
@@ -23,7 +24,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.Brand.create');
     }
 
     /**
@@ -34,7 +35,11 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $brand = new Brand;
+        $brand->title=$request->title;
+        $brand->save();
+        return redirect('brand');
+
     }
 
     /**
