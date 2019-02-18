@@ -15,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('Admin.Product.index');
+        $data['products']=Product::all();
+        return view('Admin.Product.index')->with($data);
     }
 
     /**
@@ -25,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('Admin.Product.create');
+        $data['categories']=Category::all();
+        return view('Admin.Product.create')->with($data);
     }
 
     /**
@@ -36,10 +38,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+       // return $request;
         $product = new Product;
         $product->title = $request->title;
         $product->description = $request->description;
-        $product->category= $request->category;
+        $product->category= $request->category_id;
         $product->brand= $request->brand;
         $product->price = $request->price;
         $product->save();
@@ -66,7 +69,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+    $data['product']=Product::find();
+    return view('admin.Product.create')->with($data);
     }
 
     /**

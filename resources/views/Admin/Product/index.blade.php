@@ -3,51 +3,48 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>Product List</h1>
+<h1>All Categories</h1>
 @stop
 
 @section('content')
-    <div class="box">
-        <div class="box-header">
-            <h3 class="box-title">Products</h3>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">All Categories</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>id no.</th>
+                            <th>title</th>
+                            <th>description</th>
+                            <th>category_id</th>
+                            <th>brand</th>
+                            <th>price</th>
 
-            <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($products as $product)
+                        <tr>
+                            <td>{{$product->id}}</td>
+                            <td>{{$product->title}}</td>
+                            <td>{{$product->description}}</td>
+                            <td>{{$product->category}}</td>
+                            <td>{{$product->brand}}</td>
+                            <td>{{$product->price}}</td>
+                            <td><a href="{{route('product.edit',[$product->id])}}">Edit</a></td>
 
-                    <div class="input-group-btn">
-                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                    </div>
+
+                        </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        <!-- /.box-header -->
-        <div class="box-body table-responsive no-padding">
-            <table class="table table-hover">
-                <tbody><tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Brand</th>
-                    <th>Price</th>
-                    <th>Image</th>
-                    <th>Action</th>
-                </tr>
-                <tr>
-                    <td>id</td>
-                    <td>Samsung X</td>
-                    <td>This is the desscription</td>
-                    <td>Phone</td>
-                    <td>Samsung</td>
-                    <td>20000</td>
-                    <td>Image photo</td>
-                    <td><span class="label label-success">Edit</span></td>
-                </tr>
-
-                </tbody></table>
-        </div>
-        <!-- /.box-body -->
     </div>
+</div>
+</div>
 @stop
-

@@ -3,41 +3,43 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>Category List</h1>
+<h1>All Categories</h1>
 @stop
 
 @section('content')
-    <div class="box">
-        <div class="box-header">
-            <h3 class="box-title">Categories</h3>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">All Categories</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
 
-            <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                            <th>id</th>
+                            <th>title</th>
+                            <th>action</th>
 
-                    <div class="input-group-btn">
-                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                    </div>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($categories as $category)
+                        <tr>
+                            <td>{{$category->id}}</td>
+                            <td>{{$category->title}}</td>
+
+
+                        </tr>
+
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        <!-- /.box-header -->
-        <div class="box-body table-responsive no-padding">
-            <table class="table table-hover">
-                <tbody><tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Action</th>
-                </tr>
-                <tr>
-                    <td>id</td>
-                    <td>Samsung X</td>
-                    <td><span class="label label-success">Edit</span></td>
-                </tr>
-
-                </tbody></table>
-        </div>
-        <!-- /.box-body -->
     </div>
+</div>
+</div>
 @stop
-

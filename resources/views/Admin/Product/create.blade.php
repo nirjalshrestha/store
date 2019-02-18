@@ -11,26 +11,26 @@
 
         <!-- /.box-header -->
         <div class="box-body">
-            <form role="form"  method="post" action="{{route('product.store')}}">
+            <form role="form"  method="POST" action="{{route('product.store')}}">
                 @csrf
 
                 <!-- text input -->
                 <div class="form-group">
-                    <label>Title</label>
+                    <label for="title">Title </label>
                     <input type="text" class="form-control" name="title" placeholder="Enter ...">
                 </div>
 
                 <!-- textarea -->
                 <div class="form-group">
-                    <label>Description</label>
+                    <label for="description">Description </label>
                     <textarea class="form-control" rows="3" name="description" placeholder="Enter ..."></textarea>
                 </div>
 
                 <!-- select -->
                 <div class="form-group">
-                    <label>Category</label>
+                    <label for="category_id">Category </label>
                     <select class="form-control" name="category_id">
-                        @foreach ($cetegories as $category)
+                        @foreach ($categories as $category)
                             <option value="{{$category->id}}">{{$category->title}}</option>
                         @endforeach
 
@@ -42,6 +42,9 @@
 
                             <option >Option 1</option>
 
+                        @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->title}}</option>
+                        @endforeach
 
 
                     </select>

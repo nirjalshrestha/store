@@ -15,7 +15,7 @@
                 @csrf
                 <!-- text input -->
                 <div class="form-group">
-                    <label>Category Title</label>
+                    <label for="title">Title</label>
                     <input type="text" class="form-control" name="title" placeholder="Enter ...">
                 </div>
 
