@@ -29,7 +29,13 @@
                         <tr>
                             <td>{{$category->id}}</td>
                             <td>{{$category->title}}</td>
+                            <td><a href="{{route('category.edit',[$category->id])}}">EDIT</a></td>
 
+                            <form action="{{route('category.destroy',[$category->id])}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-primary">Delete</button>
+                            </form>
 
                         </tr>
 

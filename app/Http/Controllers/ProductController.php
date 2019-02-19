@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Brand;
 
 class ProductController extends Controller
 {
@@ -26,6 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $data['brands']=Brand::all();
         $data['categories']=Category::all();
         return view('Admin.Product.create')->with($data);
     }
@@ -69,7 +71,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-    $data['product']=Product::find();
+    $data['product']=Product::find($id);
+    $data['categories']=Category::all();
+    $data['brands']=Brand::all();
     return view('admin.Product.create')->with($data);
     }
 

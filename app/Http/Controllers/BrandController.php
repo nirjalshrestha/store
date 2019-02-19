@@ -14,7 +14,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return view('Admin.Brand.index');
+        $data['brands']=Brand::all();
+        return view('Admin.Brand.index')->with($data);
     }
 
     /**

@@ -22,6 +22,8 @@
                             <th>category_id</th>
                             <th>brand</th>
                             <th>price</th>
+                            <th>Action</th>
+
 
                         </tr>
                         </thead>

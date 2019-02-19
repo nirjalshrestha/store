@@ -62,7 +62,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-//
+        $data['category']=Category::find($id);
+        return view('Admin.Category.create')->with($data);
     }
 
     /**
@@ -74,7 +75,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       // return $request;
+        $category=Category::find($id);
+        $category->title=$request->title;
+        $category->save();
+        return redirect('category');
     }
 
     /**
@@ -85,6 +90,16 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category=Category::find($id);
+        if(!$category){
+            redirect('category');
+        }
+     $delete=$category->delete();
+        if($delete){
+            redirect('category');
+        }else
+        {
+            redirect('/category');
+        }
     }
 }

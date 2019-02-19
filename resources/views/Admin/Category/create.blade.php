@@ -11,12 +11,13 @@
 
         <!-- /.box-header -->
         <div class="box-body">
-            <form role="form" method="post" action="{{route('category.store')}}">
+            <form role="form" method="post" action="{{isset($category) ?route('category.update',[$category->id]) :route('category.store')}}">
                 @csrf
+                @method('PATCH');
                 <!-- text input -->
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" class="form-control" name="title" placeholder="Enter ...">
+                    <input type="text" class="form-control" name="title" placeholder="Enter ..." value="{{isset($category) ? $category->title:''}}">
                 </div>
 
                 <button type="submit" class="btn btn-info pull-right">Save</button>

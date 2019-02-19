@@ -29,11 +29,13 @@
                     <th>Title</th>
                     <th>Action</th>
                 </tr>
+                @foreach($brands as $brand)
                 <tr>
-                    <td>id</td>
-                    <td>Samsung X</td>
+                    <td>{{$brand->id}}</td>
+                    <td>{{$brand->title}}</td>
                     <td><span class="label label-success">Edit</span></td>
                 </tr>
+                @endforeach
 
                 </tbody></table>
         </div>
