@@ -38,10 +38,12 @@ Route::resource('category','CategoryController');
 
 Route::resource('brand','BrandController');
 
+Route::resource('profile','ProfileController');
 
-Route::get('admin/profile/user', function () {
+
+/*Route::get('admin/profile/user', function () {
     return view('Admin/Profile/user');
-});
+});*/
 
 
 

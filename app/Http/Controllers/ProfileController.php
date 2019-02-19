@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
-use App\Brand;
 
-class BrandController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $data['brands']=Brand::all();
-        return view('Admin.Brand.index')->with($data);
+        $data['profiles']=User::all();
+        return view('Admin.Profile.user')->with($data);
     }
 
     /**
@@ -25,7 +25,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('Admin.Brand.create');
+
     }
 
     /**
@@ -36,11 +36,7 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        $brand = new Brand;
-        $brand->title=$request->title;
-        $brand->save();
-        return redirect('brand');
-
+        //
     }
 
     /**
@@ -62,8 +58,7 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        $data['brand']=Brand::find($id);
-        return view('Admin.Brand.create')->with($data);
+        //
     }
 
     /**
@@ -75,10 +70,7 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $brand=Brand::find($id);
-        $brand->title=$request->title;
-        $brand->save();
-        redirect('brand');
+        //
     }
 
     /**
@@ -89,18 +81,15 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        $brand=Brand::find($id);
-        if(!$brand){
-        redirect('brand');
-        }
-        $delete=$brand->delete();
-       if($delete){
-           redirect('brand');
-       }else{
-           redirect('/brand');
-       }
-}
-
-
-
+     $profile=User::find($id);
+     if(!$profile){
+         redirect('profile');
+     }
+     $delete=$profile->delete();
+     if($delete){
+         redirect('profile');
+     }else{
+         redirect('/profile');
+     }
+    }
 }

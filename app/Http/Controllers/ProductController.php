@@ -86,7 +86,14 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product=Product::find($id);
+        $product->title=$request->title;
+        $product->description=$request->description;
+        $product->category=$request->category_id;
+        $product->brand=$request->brand;
+        $product->price=$request->price;
+        $product->save();
+        return redirect('product');
     }
 
     /**
@@ -97,6 +104,16 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product=Product::find($id);
+        if(!$product){
+            return redirect('product');
+        }
+        $delete=$product->delete();
+        if($delete){
+            return redirect('product');
+        }else{
+            return redirect('/prduct');
+        }
     }
+
 }

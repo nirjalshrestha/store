@@ -30,14 +30,25 @@
                     <th>Email</th>
                     <th>Action</th>
                 </tr>
+                @foreach($profiles as $profile)
                 <tr>
-                    <td>id</td>
-                    <td>Nirjal Shrestha</td>
-                    <td>shresthanirzal@gmail.com</td>
-                    <td><span class="label label-success">Aprove</span></td>
-                </tr>
+                   <td>{{$profile->id}}</td>
+                    <td>{{$profile->name}}</td>
+                    <td>{{$profile->email}}</td>
+                    
+                    <td>
+                        <form action="{{route('profile.destroy',[$profile->id])}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-primary">Delete</button>
 
-                </tbody></table>
+                    </td>
+                </tr>
+                </form>
+                @endforeach
+
+                </tbody>
+            </table>
         </div>
         <!-- /.box-body -->
     </div>

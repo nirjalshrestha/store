@@ -25,7 +25,7 @@
             <!-- textarea -->
             <div class="form-group">
                 <label for="description">Description </label>
-                <textarea class="form-control" rows="3" name="description" placeholder="Enter ..." value="{{isset($product) ? $product->description:''}}"></textarea>
+                <textarea class="form-control" rows="3" name="description" placeholder="Enter ...">{{isset($product) ? $product->description:''}}</textarea>
             </div>
 
             <!-- select -->
@@ -34,7 +34,11 @@
                 <select class="form-control" name="category_id">
 
                     @foreach ($categories as $category)
-                    <option value="{{$category->id}}">{{$category->title}}</option>
+                    @if(isset($product))
+                        <option value="{{$category->id}}"{{$product->category == $category->id ? " selected" :  null}}>{{$category->title}}</option>
+                    @else
+                        <option value="{{$category->id}}">{{$category->title}}</option>
+                    @endif
                     @endforeach
 
                 </select>

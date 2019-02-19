@@ -178,7 +178,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'User Profile',
-                    'url'  => '#',
+                    'url'  => 'profile',
                 ],
                 [
                     'text'    => 'Supplier Profile',
